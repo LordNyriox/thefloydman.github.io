@@ -1,13 +1,13 @@
 const rivenProperties = [{
     gvas: ['VectorGameStates', 'PlayerLocation', 'Value'],
     html: 'player-position',
-    title: 'Player position',
+    title: 'Player Position',
     description: 'Stay relatively close to where you saved. This variable does not control what terrain is loaded, so you\'ll fall through the ground if you move too far.'
 
 }, {
     gvas: ['RotatorGameStates', 'PlayerRotation', 'Value'],
     html: 'player-rotation',
-    title: 'Player rotation'
+    title: 'Player Rotation'
 }, {
     html: 'telescope-solution',
     title: 'Telescope Solution',
@@ -71,6 +71,10 @@ const rivenProperties = [{
         title: 'Digit 10',
         type: 'dropdown',
         values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    }, {
+        gvas: ['BoolGameStates', '3010A4EC41F17ADA50EF048150F87AFA', 'Value'],
+        html: 'telescope-powered',
+        label: 'Powered'
     }]
 }, {
     html: 'animal-totems-solution',
@@ -262,7 +266,11 @@ const rivenProperties = [{
             { actual: 22, display: 'Seahorse (22)' },
             { actual: 23, display: 'Shark (23)' }
         ]
-    }]
+    }, {
+        gvas: ['BoolGameStates', 'AE66B762411A053A062614B76F71DB34', 'Value'],
+        html: 'rebel-viewer',
+        label: 'Collected Moiety Lens'
+        }]
 }, {
     html: 'slider-solution',
     title: 'Fire Marble Slider Solution',
@@ -497,12 +505,151 @@ const rivenProperties = [{
     type: 'dropdown',
     values: [0, 1, 2, 3, 4]
 }, {
-    gvas: ['IntGameStates', '22BA75C942980718DFBBE29C89486F91', 'Value'],
-    html: 'temple-main-door',
-    title: 'Temple Main Door',
-    type: 'dropdown',
-    values: [
-        { actual: 0, display: 'Closed' },
-        { actual: 1, display: 'Open' }
-    ]
+    html: 'door',
+    title: 'Door State',
+    children: [{
+        gvas: ['IntGameStates', '22BA75C942980718DFBBE29C89486F91', 'Value'],
+        html: 'temple-main-door',
+        title: 'Temple Main',
+        type: 'dropdown',
+        values: [
+            { actual: 0, display: 'Closed' },
+            { actual: 1, display: 'Open' }
+        ]
+    }, {
+        gvas: ['IntGameStates', '44ED7F024F28ECF9E40907858FBCC03A', 'Value'],
+        html: 'gateroom-gate-outer',
+        title: 'Gateroom Outer',
+        type: 'dropdown',
+        values: [
+            { actual: 0, display: 'Closed' },
+            { actual: 1, display: 'Open' }
+        ]
+    }, {
+        gvas: ['IntGameStates', '5FF7410E4CBE13AFD71016A38162D9D9', 'Value'],
+        html: 'gateroom-gate-inner',
+        title: 'Gateroom Inner',
+        type: 'dropdown',
+        values: [
+            { actual: 0, display: 'Closed' },
+            { actual: 1, display: 'Open' }
+        ]
+    }, {
+        gvas: ['IntGameStates', '4D4CF4B24C2F464E3B5BA8931A464605', 'Value'],
+        html: 'gateroom-gate-dome',
+        title: 'Gateroom Dome',
+        type: 'dropdown',
+        values: [
+            { actual: 0, display: 'Closed' },
+            { actual: 1, display: 'Open' }
+        ]
+    }, {
+        gvas: ['BoolGameStates', 'FB15E01F432AA4BB8D26BD89649857FB', 'Value'],
+        html: 'wahrk-totem',
+        label: 'Wahrk Totem Mouth'
+    }, {
+        gvas: ['BoolGameStates', '59FA11EC4994BEE88658379C8BD15021', 'Value'],
+        html: 'gallows-iris',
+        label: 'Gallows Iris'
+    }, {
+        gvas: ['BoolGameStates', 'C52D896C48F5ADA3528DA7A70B071F4C', 'Value'],
+        html: 'balcony-hatch',
+        label: 'Balcony Hatch'
+    }, {
+        gvas: ['BoolGameStates', 'FFDDF6934D459591906E93A1895F4977', 'Value'],
+        html: 'lab-lock-maglev',
+        label: 'Lab Maglev Lock'
+    }, {
+        gvas: ['BoolGameStates', '59218FA2494FEA98660225A62AB39FE9', 'Value'],
+        html: 'lab-lock-maglev',
+        label: 'Lab Catwalk Lock'
+    }]
+}, {
+    html: 'fire-marble-dome-bridge',
+    title: 'Fire Marble Dome Bridge',
+    children: [{
+        gvas: ['BoolGameStates', '6DDE63B649145D51E02A5C9E78425EBE', 'Value'],
+        html: 'fire-marble-dome-bridge-temple',
+        label: 'Temple'
+    }, {
+        gvas: ['BoolGameStates', '8F6D19AA487B40D06D7BBAACF17C5F1E', 'Value'],
+        html: 'fire-marble-dome-bridge-jungle',
+        label: 'Jungle'
+    }, {
+        gvas: ['BoolGameStates', '9B744D3C4403CD87CFAB51919E156AD4', 'Value'],
+        html: 'fire-marble-dome-bridge-boiler',
+        label: 'Boiler'
+    }, {
+        gvas: ['BoolGameStates', 'A1F280514BCE814E913E13815A786894', 'Value'],
+        html: 'fire-marble-dome-bridge-survey',
+        label: 'Survey'
+    }, {
+        gvas: ['BoolGameStates', '730A0C4549031E6D0715FA8D50FCF2A7', 'Value'],
+        html: 'fire-marble-dome-bridge-prison',
+        label: 'Prison'
+    }]
+}, {
+    html: 'fire-marble-dome-open',
+    title: 'Fire Marble Dome Open',
+    children: [{
+        gvas: ['BoolGameStates', 'A6C2BEA54A0359D4341C53A32596DCE8', 'Value'],
+        html: 'fire-marble-dome-open-temple',
+        label: 'Temple'
+    }, {
+        gvas: ['BoolGameStates', '0928BD2D45DEAA0B4C9CE3836F0B0291', 'Value'],
+        html: 'fire-marble-dome-open-jungle',
+        label: 'Jungle'
+    }, {
+        gvas: ['BoolGameStates', 'AFC6AA5F4F6EC8C02680EB98F07C6B61', 'Value'],
+        html: 'fire-marble-dome-open-boiler',
+        label: 'Boiler'
+    }, {
+        gvas: ['BoolGameStates', '377D241E4EE0A9887C12A5A9EE01891F', 'Value'],
+        html: 'fire-marble-dome-open-survey',
+        label: 'Survey'
+    }, {
+        gvas: ['BoolGameStates', '459582A34BF7426D55F19984F6B9DBF9', 'Value'],
+        html: 'fire-marble-dome-open-prison',
+        label: 'Prison'
+    }]
+}, {
+    html: 'cutscene-played',
+    title: 'Played Cutscene',
+    children: [{
+        gvas: ['BoolGameStates', 'F919AA4F400CDEFF8652578190ACB108', 'Value'],
+        html: 'cutscene-played-intro',
+        label: 'Intro'
+    }, {
+        gvas: ['BoolGameStates', '3538A70444E044E76D36AB9794A707ED', 'Value'],
+        html: 'cutscene-played-bridge-blow',
+        label: 'Bridge Blown Up'
+    }, {
+        gvas: ['BoolGameStates', 'E7C8C38F4C657D06BAF5C68E91AE6183', 'Value'],
+        html: 'cutscene-played-bridge-collapse',
+        label: 'Bridge Collapsed'
+    }, {
+        gvas: ['BoolGameStates', '5D1205DF4B419EEB61947698A2065549', 'Value'],
+        html: 'cutscene-played-beetle',
+        label: 'Beetle'
+    }, {
+        gvas: ['BoolGameStates', 'A4983F7647A554F9017615A0B6B09EC7', 'Value'],
+        html: 'cutscene-played-guard-a',
+        label: 'Guard Tower A'
+    }, {
+        gvas: ['BoolGameStates', 'DD55984D46B24E04E5529FA914AAC160', 'Value'],
+        html: 'cutscene-played-guard-b',
+        label: 'Guard Tower B'
+    }, {
+        gvas: ['BoolGameStates', '1AF3DFAA4D21D6D79C17129F3DF8AACB', 'Value'],
+        html: 'cutscene-played-wahrk-swim',
+        label: 'Wahrk Swimming'
+    }, {
+        gvas: ['BoolGameStates', '1E2FFF9740F18F936A93BFBE69B0EE1B', 'Value'],
+        html: 'cutscene-played-wahrk-glass',
+        label: 'Wahrk Ramming'
+    }, {
+        gvas: ['BoolGameStates', 'DC4649D8499C274E2CD744AABC55D56E', 'Value'],
+        html: 'cutscene-played-prison',
+        label: 'Scribe Running'
+    }]
 }]
